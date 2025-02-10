@@ -1,0 +1,26 @@
+{
+  "name": "olamaps-web-sdk",
+  "version": "1.1.0",
+  "description": "Ola Maps Web SDK",
+  "files": [
+    "dist/*"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "unpkg": "dist/olamaps-web-sdk.umd.js",
+  "homepage": "https://maps.olakrutrim.com",
+  "bugs": {
+    "url": "https://github.com/ola-maps/olamaps-web-sdk/issues/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ola-maps/olamaps-web-sdk.git"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "npm": ">=8.1.0",
+    "node": ">=16.14.0"
+  }
+}
