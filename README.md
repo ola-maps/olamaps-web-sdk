@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/1.1.0)](https://www.npmjs.com/package/olamaps-web-sdk)
 [![License](https://img.shields.io/badge/Licence-OlaMaps-red)](LICENSE.txt)
 
-The official OlaMaps Web SDK provides a powerful and easy-to-use interface for integrating maps into your web applications. This repository contains the distributed files and serves as the public interface for issues, feature requests, and discussions.
+The official OlaMaps Web SDK provides a powerful and easy-to-use interface for integrating maps into your web applications. This repository contains the distribution files and serves as the public interface for issues, feature requests, and discussions.
 
 ## Installation
 
