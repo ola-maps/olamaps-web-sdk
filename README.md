@@ -20,10 +20,10 @@ Add the following script tag to your HTML file's `<head>` section:
 Install via npm:
 
 ```bash
-npm install olamaps-web-sdk
+npm i olamaps-web-sdk
 ```
 
-Then import in your project:
+Then use in your project by imports like:
 
 ```javascript
 import { OlaMaps } from "olamaps-web-sdk";
