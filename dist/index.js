@@ -51247,7 +51247,9 @@ class gV {
       typeof this.olaMaps[o] == "function" && (i[o] = this.olaMaps[o].bind(this.olaMaps));
     }), Object.keys(jd).forEach((o) => {
       typeof jd[o] == "function" ? i[o] = (...l) => new jd[o](...l) : i[o] = jd[o];
-    }), i;
+    }), Object.getOwnPropertyNames(this.olaMaps).forEach((o) => {
+      o in i || (i[o] = this.olaMaps[o]);
+    }), Object.assign(this.olaMaps, i);
   }
   addNavigationControls(e) {
     return new mo.NavigationControl(e);
