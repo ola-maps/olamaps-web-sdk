@@ -1,141 +1,228 @@
+import { AlphaImage } from 'maplibre-gl';
+import { AroundCenterOptions } from 'maplibre-gl';
+import { BackgroundLayerSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { BBox } from 'geojson';
+import { BooleanTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { Bucket } from 'maplibre-gl';
+import { CalculateTileZoomFunction } from 'maplibre-gl';
+import { CameraExpression } from '@maplibre/maplibre-gl-style-spec';
+import { CameraForBoundsOptions } from 'maplibre-gl';
+import { CameraFunctionSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { CameraUpdateTransformFunction } from 'maplibre-gl';
+import { CanonicalTileRange } from 'maplibre-gl';
+import { CanvasSourceSpecification } from 'maplibre-gl';
+import { CenterZoomBearing } from 'maplibre-gl';
+import { CircleLayerSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { CollatorExpressionSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { CollatorTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { Color } from '@maplibre/maplibre-gl-style-spec';
+import { ColorArray } from '@maplibre/maplibre-gl-style-spec';
+import { ColorArraySpecification } from '@maplibre/maplibre-gl-style-spec';
+import { ColorArrayTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { ColorReliefLayerSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { ColorSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { ColorTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { CompositeExpression } from '@maplibre/maplibre-gl-style-spec';
+import { CompositeFunctionSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { ConstantExpression } from '@maplibre/maplibre-gl-style-spec';
+import { ControlPosition } from 'maplibre-gl';
+import { Coordinates } from 'maplibre-gl';
+import { CoveringTilesOptions } from 'maplibre-gl';
+import { CreateTileMeshOptions } from 'maplibre-gl';
+import { CustomLayerInterface } from 'maplibre-gl';
+import { CustomRenderMethod } from 'maplibre-gl';
+import { CustomRenderMethodInput } from 'maplibre-gl';
+import { DashEntry } from 'maplibre-gl';
+import { DataDrivenPropertyValueSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { Definition } from '@maplibre/maplibre-gl-style-spec';
+import { DiffOperations } from '@maplibre/maplibre-gl-style-spec';
+import { DiffOperationsMap } from '@maplibre/maplibre-gl-style-spec';
+import { Dispatcher } from 'maplibre-gl';
+import { DragPanOptions } from 'maplibre-gl';
+import { ErrorTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { EvaluationContext } from '@maplibre/maplibre-gl-style-spec';
+import { EvaluationKind } from '@maplibre/maplibre-gl-style-spec';
+import { ExpectedTypes } from '@maplibre/maplibre-gl-style-spec';
+import { ExpiryData } from 'maplibre-gl';
+import { Expression } from '@maplibre/maplibre-gl-style-spec';
+import { ExpressionFilterSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { ExpressionInputType } from '@maplibre/maplibre-gl-style-spec';
+import { ExpressionParser } from '@maplibre/maplibre-gl-style-spec';
+import { ExpressionRegistration } from '@maplibre/maplibre-gl-style-spec';
+import { ExpressionRegistry } from '@maplibre/maplibre-gl-style-spec';
+import { ExpressionSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { ExpressionSpecificationDefinition } from '@maplibre/maplibre-gl-style-spec';
+import { ExpressionType } from '@maplibre/maplibre-gl-style-spec';
+import { Feature } from '@maplibre/maplibre-gl-style-spec';
+import { FeatureCollection } from 'geojson';
+import { FeatureFilter } from '@maplibre/maplibre-gl-style-spec';
+import { FeatureIdentifier } from 'maplibre-gl';
+import { FeatureIndex } from 'maplibre-gl';
+import { FeatureState } from '@maplibre/maplibre-gl-style-spec';
+import { FillExtrusionLayerSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { FillLayerSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { FilterExpression } from '@maplibre/maplibre-gl-style-spec';
+import { FilterSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { Formatted } from '@maplibre/maplibre-gl-style-spec';
+import { FormattedSection } from '@maplibre/maplibre-gl-style-spec';
+import { FormattedSectionExpression } from '@maplibre/maplibre-gl-style-spec';
+import { FormattedSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { FormattedTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { GeoJSON as GeoJSON_2 } from 'geojson';
+import { GeoJSONFeature } from 'maplibre-gl';
+import { GeoJSONFeatureDiff } from 'maplibre-gl';
+import { GeoJSONFeatureId } from 'maplibre-gl';
+import { GeoJsonGeometryTypes } from 'geojson';
+import { GeoJsonObject } from 'geojson';
+import { GeoJsonProperties } from 'geojson';
+import { GeoJSONSourceDiff } from 'maplibre-gl';
+import { GeoJSONSourceSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { GeoJsonTypes } from 'geojson';
+import { Geometry } from 'geojson';
+import { GeometryCollection } from 'geojson';
+import { GeometryObject } from 'geojson';
+import { GestureOptions } from 'maplibre-gl';
+import { GlyphPosition } from 'maplibre-gl';
+import { GlyphPositions } from 'maplibre-gl';
+import { Handler } from 'maplibre-gl';
+import { HandlerResult } from 'maplibre-gl';
+import { HCLColor } from '@maplibre/maplibre-gl-style-spec';
+import { HeatmapLayerSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { HillshadeLayerSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { IActor } from 'maplibre-gl';
+import { ICanonicalTileID } from '@maplibre/maplibre-gl-style-spec';
+import { ILngLat } from '@maplibre/maplibre-gl-style-spec';
+import { ILngLatLike } from '@maplibre/maplibre-gl-style-spec';
+import { ImageAtlas } from 'maplibre-gl';
+import { ImageSourceSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { IMercatorCoordinate } from '@maplibre/maplibre-gl-style-spec';
+import { IndicesType } from 'maplibre-gl';
+import { InterpolationColorSpace } from '@maplibre/maplibre-gl-style-spec';
+import { InterpolationSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { InterpolationType } from '@maplibre/maplibre-gl-style-spec';
+import { LABColor } from '@maplibre/maplibre-gl-style-spec';
+import { LayerWithRef } from '@maplibre/maplibre-gl-style-spec';
+import { LegacyFilterSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { LightSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { LineLayerSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { LineString } from 'geojson';
+import { Listener } from 'maplibre-gl';
+import { LngLatBoundsLike } from 'maplibre-gl';
+import { LngLatLike } from 'maplibre-gl';
+import { MapContextEvent } from 'maplibre-gl';
+import { MapDataEvent } from 'maplibre-gl';
+import { MapEventType } from 'maplibre-gl';
+import { MapGeoJSONFeature } from 'maplibre-gl';
+import { MapLayerEventType } from 'maplibre-gl';
+import { MapLayerMouseEvent } from 'maplibre-gl';
+import { MapLayerTouchEvent } from 'maplibre-gl';
+import { MapLibreZoomEvent } from 'maplibre-gl';
+import { MapProjectionEvent } from 'maplibre-gl';
+import { MapSourceDataEvent } from 'maplibre-gl';
+import { MapSourceDataType } from 'maplibre-gl';
+import { MapStyleDataEvent } from 'maplibre-gl';
+import { MapStyleImageMissingEvent } from 'maplibre-gl';
+import { MapTerrainEvent } from 'maplibre-gl';
+import { MessageType } from 'maplibre-gl';
+import { MultiLineString } from 'geojson';
+import { MultiPoint } from 'geojson';
+import { MultiPolygon } from 'geojson';
+import { NullTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { NumberArray } from '@maplibre/maplibre-gl-style-spec';
+import { NumberArraySpecification } from '@maplibre/maplibre-gl-style-spec';
+import { NumberArrayTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { NumberTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { ObjectTypeT } from '@maplibre/maplibre-gl-style-spec';
 import * as OlaMapsGl from 'maplibre-gl';
-
-export declare type AddLayerObject = OlaMaps.AddLayerObject;
-
-export declare type AddProtocolAction = OlaMaps.AddProtocolAction;
-
-export declare type AJAXError = OlaMaps.AJAXError;
-
-export declare type AttributionControl = OlaMaps.AttributionControl;
-
-export declare type AttributionControlOptions = OlaMaps.AttributionControlOptions;
-
-export declare type BBox = OlaMaps.BBox;
-
-export declare type CanvasSource = OlaMaps.CanvasSource;
-
-export declare type Coordinates = OlaMaps.Coordinates;
-
-export declare type CustomLayerInterface = OlaMaps.CustomLayerInterface;
+import { OverscaledTileID } from 'maplibre-gl';
+import { Padding } from '@maplibre/maplibre-gl-style-spec';
+import { PaddingSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { PaddingTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { ParsingError } from '@maplibre/maplibre-gl-style-spec';
+import { Point } from 'geojson';
+import { Point2D } from '@maplibre/maplibre-gl-style-spec';
+import { PointLike } from 'maplibre-gl';
+import { Polygon } from 'geojson';
+import { Position } from 'geojson';
+import { ProjectionData } from 'maplibre-gl';
+import { ProjectionDefinition } from '@maplibre/maplibre-gl-style-spec';
+import { ProjectionDefinitionT } from '@maplibre/maplibre-gl-style-spec';
+import { ProjectionDefinitionTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { ProjectionSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { PromoteIdSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { PropertyCallback } from '@maplibre/maplibre-gl-style-spec';
+import { PropertyValueSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { QueryRenderedFeaturesOptions } from 'maplibre-gl';
+import { QuerySourceFeatureOptions } from 'maplibre-gl';
+import { RasterDEMSourceSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { RasterLayerSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { RasterSourceSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { RequestParameters } from 'maplibre-gl';
+import { RequestResponseMessageMap } from 'maplibre-gl';
+import { RequestTransformFunction } from 'maplibre-gl';
+import { ResolvedImage } from '@maplibre/maplibre-gl-style-spec';
+import { ResolvedImageOptions } from '@maplibre/maplibre-gl-style-spec';
+import { ResolvedImageSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { ResolvedImageTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { ResourceType } from 'maplibre-gl';
+import { RGBColor } from '@maplibre/maplibre-gl-style-spec';
+import { SchemaSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { SetClusterOptions } from 'maplibre-gl';
+import { SkySpecification } from '@maplibre/maplibre-gl-style-spec';
+import { Source } from 'maplibre-gl';
+import { SourceClass } from 'maplibre-gl';
+import { SourceExpression } from '@maplibre/maplibre-gl-style-spec';
+import { SourceFunctionSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { SpriteSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { StringTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { StyleExpression } from '@maplibre/maplibre-gl-style-spec';
+import { StyleGlyph } from 'maplibre-gl';
+import { StyleImage } from 'maplibre-gl';
+import { StyleImageData } from 'maplibre-gl';
+import { StyleImageInterface } from 'maplibre-gl';
+import { StyleImageMetadata } from 'maplibre-gl';
+import { StyleOptions } from 'maplibre-gl';
+import { StylePropertyExpression } from '@maplibre/maplibre-gl-style-spec';
+import { StylePropertySpecification } from '@maplibre/maplibre-gl-style-spec';
+import { StyleSetterOptions } from 'maplibre-gl';
+import { StyleSwapOptions } from 'maplibre-gl';
+import { Subscription } from 'maplibre-gl';
+import { SymbolLayerSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { TerrainSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { TextFit } from 'maplibre-gl';
+import { Tile } from 'maplibre-gl';
+import { TileMesh } from 'maplibre-gl';
+import { TransformConstrainFunction } from 'maplibre-gl';
+import { TransformStyleFunction } from 'maplibre-gl';
+import { TransitionSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { Type } from '@maplibre/maplibre-gl-style-spec';
+import { Unit } from 'maplibre-gl';
+import { UpdateImageOptions } from 'maplibre-gl';
+import { ValidationError } from '@maplibre/maplibre-gl-style-spec';
+import { ValueTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { Varargs } from '@maplibre/maplibre-gl-style-spec';
+import { VariableAnchorOffsetCollection } from '@maplibre/maplibre-gl-style-spec';
+import { VariableAnchorOffsetCollectionTypeT } from '@maplibre/maplibre-gl-style-spec';
+import { VectorSourceSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { VerticalAlign } from '@maplibre/maplibre-gl-style-spec';
+import { VideoSourceSpecification } from '@maplibre/maplibre-gl-style-spec';
+import { WebGLContextAttributesWithType } from 'maplibre-gl';
+import { WorkerTileResult } from 'maplibre-gl';
 
 export declare const default3dTIleset = "https://api.olamaps.io/tiles/vector/v1/3dtiles/tileset.json";
 
 export declare const defaultStyleJson = "https://api.olamaps.io/tiles/vector/v1/styles/default-light-standard/style.json?key=0.4.0";
 
-export declare type ErrorLike = OlaMaps.ErrorLike;
-
-export declare type Feature = OlaMaps.Feature;
-
-export declare type FeatureCollection = OlaMaps.FeatureCollection;
-
-export declare type FeatureIdentifier = OlaMaps.FeatureIdentifier;
-
-export declare type FeatureStates = OlaMaps.FeatureStates;
-
-export declare type FullscreenControl = OlaMaps.FullscreenControl;
-
-export declare type FullscreenControlOptions = OlaMaps.FullscreenControlOptions;
-
-declare type GeoJSON_2 = OlaMaps.GeoJSON;
-export { GeoJSON_2 as GeoJSON }
-
-export declare type GeoJSONFeature = OlaMaps.GeoJSONFeature;
-
-export declare type GeoJSONFeatureId = OlaMaps.GeoJSONFeatureId;
-
-export declare type GeoJSONPoint = OlaMaps.GeoJSONPoint;
-
-export declare type GeoJsonProperties = OlaMaps.GeoJsonProperties;
-
-export declare type GeoJSONSource = OlaMaps.GeoJSONSource;
-
-export declare type GeoJSONSourceDiff = OlaMaps.GeoJSONSourceDiff;
-
-export declare type GeoJSONSourceOptions = OlaMaps.GeoJSONSourceOptions;
-
-export declare type GeolocateControl = OlaMaps.GeolocateControl;
-
-export declare type GeolocateControlOptions = OlaMaps.GeolocateControlOptions;
-
-export declare type Geometry = OlaMaps.Geometry;
-
-export declare type GeometryCollection = OlaMaps.GeometryCollection;
-
 export declare const getCookie: (name: string) => string;
 
 export declare const getOlaMapIcon: (oemColor: string) => string;
-
-export declare type GetResourceResponse<T> = OlaMaps.GetResourceResponse<T>;
-
-export declare type IControl = OlaMaps.IControl;
-
-export declare type ImageSource = OlaMaps.ImageSource;
-
-export declare type LayerSpecification = OlaMaps.LayerSpecification;
-
-export declare type LineString = OlaMaps.LineString;
-
-export declare type LngLat = OlaMaps.LngLat;
-
-export declare type LngLatBounds = OlaMaps.LngLatBounds;
-
-export declare type LngLatLike = OlaMaps.LngLatLike;
-
-declare type Map_2 = OlaMaps.Map;
-export { Map_2 as Map }
-
-export declare type MapDataEvent = OlaMaps.MapDataEvent;
-
-export declare type MapEventType = OlaMaps.MapEventType;
-
-export declare type MapGeoJSONFeature = OlaMaps.MapGeoJSONFeature;
-
-export declare type MapLayerMouseEvent = OlaMaps.MapLayerMouseEvent;
-
-export declare type MapLayerTouchEvent = OlaMaps.MapLayerTouchEvent;
-
-declare type MapMethods = {
-    [key: string]: any;
-};
-
-export declare type MapMouseEvent = OlaMaps.MapMouseEvent;
-
-export declare type MapOptions = OlaMaps.MapOptions;
-
-export declare type MapProjectionEvent = OlaMaps.MapProjectionEvent;
-
-export declare type MapSourceDataEvent = OlaMaps.MapSourceDataEvent;
 
 declare interface MapStyle {
     id: string;
     styleJson: string;
 }
 
-export declare type MapStyleDataEvent = OlaMaps.MapStyleDataEvent;
-
 export declare type mapStyleIds = "bolt-dark" | "bolt-light" | "eclipse-dark-lite" | "eclipse-dark-standard" | "eclipse-dark-full" | "eclipse-light-lite" | "eclipse-light-standard" | "eclipse-light-full" | "vintage-dark" | "vintage-light" | "positron" | "osm-bright" | "osm-basic" | "dark-matter" | "fiord-color" | "default-light-lite" | "default-light-standard" | "default-ultra-light-standard" | "default-light-standard-hi" | "default-light-standard-kn" | "default-light-standard-mr" | "default-light-standard-te" | "default-light-standard-ta" | "default-light-standard-ml" | "default-light-standard-regional" | "default-light-full" | "default-dark-lite" | "default-dark-standard" | "default-dark-standard-hi" | "default-dark-standard-mr" | "default-dark-standard-kn" | "default-dark-standard-ta" | "default-dark-standard-te" | "default-dark-standard-ride-stat" | "default-dark-full" | "default-earth-lite" | "default-earth-standard" | "default-earth-full" | "silver-osm";
-
-export declare type MapTerrainEvent = OlaMaps.MapTerrainEvent;
-
-export declare type MapTouchEvent = OlaMaps.MapTouchEvent;
-
-export declare type MapWheelEvent = OlaMaps.MapWheelEvent;
-
-export declare type Marker = OlaMaps.Marker;
-
-export declare type MarkerOptions = OlaMaps.MarkerOptions;
-
-export declare type MercatorCoordinate = OlaMaps.MercatorCoordinate;
-
-export declare type MultiLineString = OlaMaps.MultiLineString;
-
-export declare type MultiPoint = OlaMaps.MultiPoint;
-
-export declare type MultiPolygon = OlaMaps.MultiPolygon;
-
-export declare type NavigationControl = OlaMaps.NavigationControl;
-
-export declare type NavigationControlOptions = OlaMaps.NavigationControlOptions;
 
 declare interface olaMapProps {
     apiKey: string;
@@ -145,42 +232,70 @@ declare interface olaMapProps {
 }
 
 export declare class OlaMaps {
-    private olaMaps;
     private apiKey;
     private accessToken;
     mode: string;
     private threedTileset;
-    static Marker: typeof OlaMapsGl.Marker;
-    static Popup: typeof OlaMapsGl.Popup;
-    static NavigationControl: typeof OlaMapsGl.NavigationControl;
-    static GeolocateControl: typeof OlaMapsGl.GeolocateControl;
-    static ScaleControl: typeof OlaMapsGl.ScaleControl;
-    static FullscreenControl: typeof OlaMapsGl.FullscreenControl;
-    static AttributionControl: typeof OlaMapsGl.AttributionControl;
-    static TerrainControl: typeof OlaMapsGl.TerrainControl;
-    static LngLat: typeof OlaMapsGl.LngLat;
-    static LngLatBounds: typeof OlaMapsGl.LngLatBounds;
-    static Point: typeof OlaMapsGl.Point;
-    static MercatorCoordinate: typeof OlaMapsGl.MercatorCoordinate;
-    static MapMouseEvent: typeof OlaMapsGl.MapMouseEvent;
-    static MapTouchEvent: typeof OlaMapsGl.MapTouchEvent;
-    static MapWheelEvent: typeof OlaMapsGl.MapWheelEvent;
-    static AJAXError: typeof OlaMapsGl.AJAXError;
+    private olaMaps;
     constructor({ apiKey, accessToken, mode, threedTileset }: olaMapProps);
-    private addOlaLogo;
-    private addAttribution;
-    private fetchStaticMap;
-    private add3dLayer;
-    init(options?: OlaMapsGl.MapOptions): OlaMapsGl.Map & MapMethods;
-    addNavigationControls(options?: OlaMapsGl.NavigationControlOptions): OlaMapsGl.NavigationControl;
-    addGeolocateControls(options: OlaMapsGl.GeolocateControlOptions): OlaMapsGl.GeolocateControl;
-    getMercatorCoordinate(): typeof OlaMapsGl.MercatorCoordinate;
-    addMarker(options?: OlaMapsGl.MarkerOptions): OlaMapsGl.Marker;
-    addPopup(options?: OlaMapsGl.PopupOptions): OlaMapsGl.Popup;
+    init(options?: any): Promise<any>;
+    addNavigationControls(options?: any): any;
+    addGeolocateControls(options: any): any;
+    getMercatorCoordinate(): any;
+    addMarker(options?: any): any;
+    addPopup(options?: any): any;
     getStaticMap(url: string, elementID: string): void;
+    private fetchStaticMap;
+    private static _marker;
+    private static _popup;
+    private static _navigationControl;
+    private static _geolocateControl;
+    private static _scaleControl;
+    private static _fullscreenControl;
+    private static _attributionControl;
+    private static _terrainControl;
+    private static _lngLat;
+    private static _lngLatBounds;
+    private static _point;
+    private static _mercatorCoordinate;
+    private static _mapMouseEvent;
+    private static _mapTouchEvent;
+    private static _mapWheelEvent;
+    private static _ajaxError;
+    static get Marker(): any;
+    static get Popup(): any;
+    static get NavigationControl(): any;
+    static get GeolocateControl(): any;
+    static get ScaleControl(): any;
+    private static createMockConstructor;
+    static get FullscreenControl(): any;
+    static get AttributionControl(): any;
+    static get TerrainControl(): any;
+    static get LngLat(): any;
+    static get LngLatBounds(): any;
+    static get Point(): any;
+    static get MercatorCoordinate(): any;
+    static get MapMouseEvent(): any;
+    static get MapTouchEvent(): any;
+    static get MapWheelEvent(): any;
+    static get AJAXError(): any;
+    private static initializeStaticProperties;
 }
 
-export declare namespace OlaMaps {
+export declare type OlaMapStyle = MapStyle[];
+
+/**
+ * OlaMapsWeb namespace - Contains ONLY type definitions for MapLibre GL components
+ *
+ * Usage:
+ * ```typescript
+ * // Use for TypeScript type annotations
+ * const marker: OlaMapsWeb.Marker = new OlaMaps.Marker();
+ * const map: OlaMapsWeb.Map = await olaMaps.init();
+ * const options: OlaMapsWeb.NavigationControlOptions = { showCompass: true };
+ * ```
+ */
+export declare namespace OlaMapsWeb {
     export type Marker = OlaMapsGl.Marker;
     export type Popup = OlaMapsGl.Popup;
     export type NavigationControl = OlaMapsGl.NavigationControl;
@@ -189,6 +304,9 @@ export declare namespace OlaMaps {
     export type FullscreenControl = OlaMapsGl.FullscreenControl;
     export type AttributionControl = OlaMapsGl.AttributionControl;
     export type TerrainControl = OlaMapsGl.TerrainControl;
+    export type LogoControl = OlaMapsGl.LogoControl;
+    export type GlobeControl = OlaMapsGl.GlobeControl;
+    export type IControl = OlaMapsGl.IControl;
     export type Map = OlaMapsGl.Map;
     export type MapOptions = OlaMapsGl.MapOptions;
     export type MarkerOptions = OlaMapsGl.MarkerOptions;
@@ -198,205 +316,262 @@ export declare namespace OlaMaps {
     export type ScaleControlOptions = OlaMapsGl.ScaleControlOptions;
     export type FullscreenControlOptions = OlaMapsGl.FullscreenControlOptions;
     export type AttributionControlOptions = OlaMapsGl.AttributionControlOptions;
-    export type StyleSpecification = OlaMapsGl.StyleSpecification;
-    export type LayerSpecification = OlaMapsGl.LayerSpecification;
-    export type SourceSpecification = OlaMapsGl.SourceSpecification;
-    export type StyleOptions = OlaMapsGl.StyleOptions;
-    export type StyleSetterOptions = OlaMapsGl.StyleSetterOptions;
-    export type AddLayerObject = OlaMapsGl.AddLayerObject;
-    export type GeoJSONSource = OlaMapsGl.GeoJSONSource;
-    export type GeoJSONSourceOptions = OlaMapsGl.GeoJSONSourceOptions;
-    export type GeoJSONSourceDiff = OlaMapsGl.GeoJSONSourceDiff;
-    export type GeoJSONFeatureId = OlaMapsGl.GeoJSONFeatureId;
-    export type VectorTileSource = OlaMapsGl.VectorTileSource;
-    export type RasterTileSource = OlaMapsGl.RasterTileSource;
-    export type ImageSource = OlaMapsGl.ImageSource;
-    export type CanvasSource = OlaMapsGl.CanvasSource;
-    export type VideoSource = OlaMapsGl.VideoSource;
+    export type LogoControlOptions = OlaMapsGl.LogoControlOptions;
     export type LngLat = OlaMapsGl.LngLat;
-    export type LngLatLike = OlaMapsGl.LngLatLike;
     export type LngLatBounds = OlaMapsGl.LngLatBounds;
     export type Point = OlaMapsGl.Point;
     export type MercatorCoordinate = OlaMapsGl.MercatorCoordinate;
-    export type Coordinates = OlaMapsGl.Coordinates;
-    export type Feature = OlaMapsGl.Feature;
-    export type MapGeoJSONFeature = OlaMapsGl.MapGeoJSONFeature;
-    export type GeoJSONFeature = OlaMapsGl.GeoJSONFeature;
-    export type FeatureStates = OlaMapsGl.FeatureStates;
-    export type FeatureIdentifier = OlaMapsGl.FeatureIdentifier;
-    export type GeoJSON = GeoJSON.GeoJSON;
-    export type Geometry = GeoJSON.Geometry;
-    export type GeometryCollection = GeoJSON.GeometryCollection;
-    export type GeoJSONPoint = GeoJSON.Point;
-    export type MultiPoint = GeoJSON.MultiPoint;
-    export type LineString = GeoJSON.LineString;
-    export type MultiLineString = GeoJSON.MultiLineString;
-    export type Polygon = GeoJSON.Polygon;
-    export type MultiPolygon = GeoJSON.MultiPolygon;
-    export type FeatureCollection = GeoJSON.FeatureCollection;
-    export type GeoJsonProperties = GeoJSON.GeoJsonProperties;
-    export type Position = GeoJSON.Position;
-    export type BBox = GeoJSON.BBox;
-    export type QueryRenderedFeaturesOptions = OlaMapsGl.QueryRenderedFeaturesOptions;
-    export type QuerySourceFeatureOptions = OlaMapsGl.QuerySourceFeatureOptions;
-    export type QueryRenderedFeaturesResults = OlaMapsGl.QueryRenderedFeaturesResults;
+    export type EdgeInsets = OlaMapsGl.EdgeInsets;
+    export type PaddingOptions = OlaMapsGl.PaddingOptions;
+    export type Offset = OlaMapsGl.Offset;
+    export type Alignment = OlaMapsGl.Alignment;
+    export type PositionAnchor = OlaMapsGl.PositionAnchor;
+    export type GeoJSONSource = OlaMapsGl.GeoJSONSource;
+    export type VectorTileSource = OlaMapsGl.VectorTileSource;
+    export type RasterTileSource = OlaMapsGl.RasterTileSource;
+    export type RasterDEMTileSource = OlaMapsGl.RasterDEMTileSource;
+    export type ImageSource = OlaMapsGl.ImageSource;
+    export type VideoSource = OlaMapsGl.VideoSource;
+    export type CanvasSource = OlaMapsGl.CanvasSource;
     export type MapMouseEvent = OlaMapsGl.MapMouseEvent;
     export type MapTouchEvent = OlaMapsGl.MapTouchEvent;
     export type MapWheelEvent = OlaMapsGl.MapWheelEvent;
-    export type MapLayerMouseEvent = OlaMapsGl.MapLayerMouseEvent;
-    export type MapLayerTouchEvent = OlaMapsGl.MapLayerTouchEvent;
-    export type MapDataEvent = OlaMapsGl.MapDataEvent;
-    export type MapSourceDataEvent = OlaMapsGl.MapSourceDataEvent;
-    export type MapStyleDataEvent = OlaMapsGl.MapStyleDataEvent;
-    export type MapTerrainEvent = OlaMapsGl.MapTerrainEvent;
-    export type MapProjectionEvent = OlaMapsGl.MapProjectionEvent;
-    export type OlaMapsEvent = OlaMapsGl.MapLibreEvent;
-    export type OlaMapsZoomEvent = OlaMapsGl.MapLibreZoomEvent;
-    export type MapEventType = OlaMapsGl.MapEventType;
+    export type Event = OlaMapsGl.Event;
+    export type Evented = OlaMapsGl.Evented;
     export type AJAXError = OlaMapsGl.AJAXError;
-    export type ErrorLike = OlaMapsGl.ErrorLike;
-    export type IControl = OlaMapsGl.IControl;
-    export type CustomLayerInterface = OlaMapsGl.CustomLayerInterface;
-    export type RequestParameters = OlaMapsGl.RequestParameters;
-    export type GetResourceResponse<T> = OlaMapsGl.GetResourceResponse<T>;
-    export type AddProtocolAction = OlaMapsGl.AddProtocolAction;
-    export type RequestTransformFunction = OlaMapsGl.RequestTransformFunction;
-    export type TileState = OlaMapsGl.TileState;
+    export type CameraOptions = OlaMapsGl.CameraOptions;
+    export type AnimationOptions = OlaMapsGl.AnimationOptions;
+    export type JumpToOptions = OlaMapsGl.JumpToOptions;
+    export type EaseToOptions = OlaMapsGl.EaseToOptions;
+    export type FlyToOptions = OlaMapsGl.FlyToOptions;
+    export type FitBoundsOptions = OlaMapsGl.FitBoundsOptions;
+    export type StyleSpecification = OlaMapsGl.StyleSpecification;
+    export type LayerSpecification = OlaMapsGl.LayerSpecification;
+    export type SourceSpecification = OlaMapsGl.SourceSpecification;
+    export type Style = OlaMapsGl.Style;
+    export type PropertyValueSpecification<T> = PropertyValueSpecification<T>;
+    export type DataDrivenPropertyValueSpecification<T> = DataDrivenPropertyValueSpecification<T>;
+    export type CameraFunctionSpecification<T> = CameraFunctionSpecification<T>;
+    export type SourceFunctionSpecification<T> = SourceFunctionSpecification<T>;
+    export type CompositeFunctionSpecification<T> = CompositeFunctionSpecification<T>;
+    export type ExpressionParser = ExpressionParser;
+    export type BoxZoomHandler = OlaMapsGl.BoxZoomHandler;
+    export type CooperativeGesturesHandler = OlaMapsGl.CooperativeGesturesHandler;
+    export type DoubleClickZoomHandler = OlaMapsGl.DoubleClickZoomHandler;
+    export type DragPanHandler = OlaMapsGl.DragPanHandler;
+    export type DragRotateHandler = OlaMapsGl.DragRotateHandler;
+    export type KeyboardHandler = OlaMapsGl.KeyboardHandler;
+    export type ScrollZoomHandler = OlaMapsGl.ScrollZoomHandler;
+    export type TwoFingersTouchPitchHandler = OlaMapsGl.TwoFingersTouchPitchHandler;
+    export type TwoFingersTouchRotateHandler = OlaMapsGl.TwoFingersTouchRotateHandler;
+    export type TwoFingersTouchZoomHandler = OlaMapsGl.TwoFingersTouchZoomHandler;
+    export type TwoFingersTouchZoomRotateHandler = OlaMapsGl.TwoFingersTouchZoomRotateHandler;
+    export type Hash = OlaMapsGl.Hash;
+    export type GeoJSON = GeoJSON_2;
+    export type Geometry = Geometry;
+    export type GeometryCollection = GeometryCollection;
+    export type GeoJSONPoint = Point;
+    export type MultiPoint = MultiPoint;
+    export type LineString = LineString;
+    export type MultiLineString = MultiLineString;
+    export type Polygon = Polygon;
+    export type MultiPolygon = MultiPolygon;
+    export type FeatureCollection = FeatureCollection;
+    export type GeoJsonProperties = GeoJsonProperties;
+    export type Position = Position;
+    export type BBox = BBox;
+    export type ExpiryData = ExpiryData;
+    export type RequestParameters = RequestParameters;
+    export type LngLatLike = LngLatLike;
+    export type OverscaledTileID = OverscaledTileID;
+    export type Listener = Listener;
+    export type AlphaImage = AlphaImage;
+    export type StyleImageData = StyleImageData;
+    export type TextFit = TextFit;
+    export type StyleImageMetadata = StyleImageMetadata;
+    export type StyleImage = StyleImage;
+    export type StyleImageInterface = StyleImageInterface;
+    export type MapGeoJSONFeature = MapGeoJSONFeature;
+    export type GeoJSONFeature = GeoJSONFeature;
+    export type LngLatBoundsLike = LngLatBoundsLike;
+    export type Dispatcher = Dispatcher;
+    export type GeoJSONFeatureId = GeoJSONFeatureId;
+    export type GeoJSONSourceDiff = GeoJSONSourceDiff;
+    export type GeoJSONFeatureDiff = GeoJSONFeatureDiff;
+    export type SetClusterOptions = SetClusterOptions;
+    export type Coordinates = Coordinates;
+    export type UpdateImageOptions = UpdateImageOptions;
+    export type CanonicalTileRange = CanonicalTileRange;
+    export type CanvasSourceSpecification = CanvasSourceSpecification;
+    export type CoveringTilesOptions = CoveringTilesOptions;
+    export type CalculateTileZoomFunction = CalculateTileZoomFunction;
+    export type Source = Source;
+    export type SourceClass = SourceClass;
+    export type StyleGlyph = StyleGlyph;
+    export type GlyphPosition = GlyphPosition;
+    export type GlyphPositions = GlyphPositions;
+    export type DashEntry = DashEntry;
+    export type ResourceType = ResourceType;
+    export type RequestTransformFunction = RequestTransformFunction;
+    export type ProjectionData = ProjectionData;
+    export type TransformConstrainFunction = TransformConstrainFunction;
+    export type FeatureIndex = FeatureIndex;
+    export type WorkerTileResult = WorkerTileResult;
+    export type QueryRenderedFeaturesOptions = QueryRenderedFeaturesOptions;
+    export type QuerySourceFeatureOptions = QuerySourceFeatureOptions;
+    export type Tile = Tile;
+    export type ImageAtlas = ImageAtlas;
+    export type CustomRenderMethodInput = CustomRenderMethodInput;
+    export type CustomRenderMethod = CustomRenderMethod;
+    export type CustomLayerInterface = CustomLayerInterface;
+    export type FeatureIdentifier = FeatureIdentifier;
+    export type StyleOptions = StyleOptions;
+    export type StyleSetterOptions = StyleSetterOptions;
+    export type TransformStyleFunction = TransformStyleFunction;
+    export type StyleSwapOptions = StyleSwapOptions;
+    export type Bucket = Bucket;
+    export type MessageType = MessageType;
+    export type RequestResponseMessageMap = RequestResponseMessageMap;
+    export type IActor = IActor;
+    export type Subscription = Subscription;
+    export type DragPanOptions = DragPanOptions;
+    export type PointLike = PointLike;
+    export type CenterZoomBearing = CenterZoomBearing;
+    export type CameraForBoundsOptions = CameraForBoundsOptions;
+    export type CameraUpdateTransformFunction = CameraUpdateTransformFunction;
+    export type Handler = Handler;
+    export type HandlerResult = HandlerResult;
+    export type ControlPosition = ControlPosition;
+    export type MapLayerMouseEvent = MapLayerMouseEvent;
+    export type MapLayerTouchEvent = MapLayerTouchEvent;
+    export type MapSourceDataType = MapSourceDataType;
+    export type MapLayerEventType = MapLayerEventType;
+    export type MapEventType = MapEventType;
+    export type MapStyleDataEvent = MapStyleDataEvent;
+    export type MapSourceDataEvent = MapSourceDataEvent;
+    export type MapLibreZoomEvent = MapLibreZoomEvent;
+    export type MapDataEvent = MapDataEvent;
+    export type MapTerrainEvent = MapTerrainEvent;
+    export type MapProjectionEvent = MapProjectionEvent;
+    export type MapContextEvent = MapContextEvent;
+    export type MapStyleImageMissingEvent = MapStyleImageMissingEvent;
+    export type AroundCenterOptions = AroundCenterOptions;
+    export type GestureOptions = GestureOptions;
+    export type WebGLContextAttributesWithType = WebGLContextAttributesWithType;
+    export type Unit = Unit;
+    export type CreateTileMeshOptions = CreateTileMeshOptions;
+    export type TileMesh = TileMesh;
+    export type IndicesType = IndicesType;
+    export type ColorSpecification = ColorSpecification;
+    export type ProjectionDefinitionT = ProjectionDefinitionT;
+    export type PaddingSpecification = PaddingSpecification;
+    export type NumberArraySpecification = NumberArraySpecification;
+    export type ColorArraySpecification = ColorArraySpecification;
+    export type SpriteSpecification = SpriteSpecification;
+    export type FormattedSpecification = FormattedSpecification;
+    export type ResolvedImageSpecification = ResolvedImageSpecification;
+    export type PromoteIdSpecification = PromoteIdSpecification;
+    export type ExpressionInputType = ExpressionInputType;
+    export type CollatorExpressionSpecification = CollatorExpressionSpecification;
+    export type InterpolationSpecification = InterpolationSpecification;
+    export type ExpressionSpecification = ExpressionSpecification;
+    export type ExpressionFilterSpecification = ExpressionFilterSpecification;
+    export type LegacyFilterSpecification = LegacyFilterSpecification;
+    export type FilterSpecification = FilterSpecification;
+    export type TransitionSpecification = TransitionSpecification;
+    export type SchemaSpecification = SchemaSpecification;
+    export type LightSpecification = LightSpecification;
+    export type SkySpecification = SkySpecification;
+    export type ProjectionSpecification = ProjectionSpecification;
+    export type TerrainSpecification = TerrainSpecification;
+    export type VectorSourceSpecification = VectorSourceSpecification;
+    export type RasterSourceSpecification = RasterSourceSpecification;
+    export type RasterDEMSourceSpecification = RasterDEMSourceSpecification;
+    export type GeoJSONSourceSpecification = GeoJSONSourceSpecification;
+    export type VideoSourceSpecification = VideoSourceSpecification;
+    export type ImageSourceSpecification = ImageSourceSpecification;
+    export type FillLayerSpecification = FillLayerSpecification;
+    export type LineLayerSpecification = LineLayerSpecification;
+    export type SymbolLayerSpecification = SymbolLayerSpecification;
+    export type CircleLayerSpecification = CircleLayerSpecification;
+    export type HeatmapLayerSpecification = HeatmapLayerSpecification;
+    export type FillExtrusionLayerSpecification = FillExtrusionLayerSpecification;
+    export type RasterLayerSpecification = RasterLayerSpecification;
+    export type HillshadeLayerSpecification = HillshadeLayerSpecification;
+    export type ColorReliefLayerSpecification = ColorReliefLayerSpecification;
+    export type BackgroundLayerSpecification = BackgroundLayerSpecification;
+    export type LayerWithRef = LayerWithRef;
+    export type DiffOperationsMap = DiffOperationsMap;
+    export type DiffOperations = DiffOperations;
+    export type ValidationError = ValidationError;
+    export type ParsingError = ParsingError;
+    export type RGBColor = RGBColor;
+    export type HCLColor = HCLColor;
+    export type LABColor = LABColor;
+    export type InterpolationColorSpace = InterpolationColorSpace;
+    export type Color = Color;
+    export type ResolvedImageOptions = ResolvedImageOptions;
+    export type ResolvedImage = ResolvedImage;
+    export type VerticalAlign = VerticalAlign;
+    export type FormattedSection = FormattedSection;
+    export type Formatted = Formatted;
+    export type Point2D = Point2D;
+    export type ICanonicalTileID = ICanonicalTileID;
+    export type IMercatorCoordinate = IMercatorCoordinate;
+    export type ILngLat = ILngLat;
+    export type ILngLatLike = ILngLatLike;
+    export type EvaluationContext = EvaluationContext;
+    export type NullTypeT = NullTypeT;
+    export type NumberTypeT = NumberTypeT;
+    export type StringTypeT = StringTypeT;
+    export type BooleanTypeT = BooleanTypeT;
+    export type ColorTypeT = ColorTypeT;
+    export type ProjectionDefinitionTypeT = ProjectionDefinitionTypeT;
+    export type ObjectTypeT = ObjectTypeT;
+    export type ValueTypeT = ValueTypeT;
+    export type ErrorTypeT = ErrorTypeT;
+    export type CollatorTypeT = CollatorTypeT;
+    export type FormattedTypeT = FormattedTypeT;
+    export type PaddingTypeT = PaddingTypeT;
+    export type NumberArrayTypeT = NumberArrayTypeT;
+    export type ColorArrayTypeT = ColorArrayTypeT;
+    export type ResolvedImageTypeT = ResolvedImageTypeT;
+    export type VariableAnchorOffsetCollectionTypeT = VariableAnchorOffsetCollectionTypeT;
+    export type EvaluationKind = EvaluationKind;
+    export type Type = Type;
+    export type Padding = Padding;
+    export type NumberArray = NumberArray;
+    export type ColorArray = ColorArray;
+    export type VariableAnchorOffsetCollection = VariableAnchorOffsetCollection;
+    export type ProjectionDefinition = ProjectionDefinition;
+    export type Expression = Expression;
+    export type ExpressionRegistration = ExpressionRegistration;
+    export type ExpressionRegistry = ExpressionRegistry;
+    export type InterpolationType = InterpolationType;
+    export type Feature = Feature;
+    export type FeatureState = FeatureState;
+    export type StyleExpression = StyleExpression;
+    export type ConstantExpression = ConstantExpression;
+    export type SourceExpression = SourceExpression;
+    export type CameraExpression = CameraExpression;
+    export type CompositeExpression = CompositeExpression;
+    export type StylePropertyExpression = StylePropertyExpression;
+    export type FilterExpression = FilterExpression;
+    export type FeatureFilter = FeatureFilter;
+    export type ExpectedTypes = ExpectedTypes;
+    export type PropertyCallback = PropertyCallback;
+    export type FormattedSectionExpression = FormattedSectionExpression;
+    export type Varargs = Varargs;
+    export type Definition = Definition;
+    export type ExpressionType = ExpressionType;
+    export type ExpressionSpecificationDefinition = ExpressionSpecificationDefinition;
+    export type StylePropertySpecification = StylePropertySpecification;
+    export type GeoJsonGeometryTypes = GeoJsonGeometryTypes;
+    export type GeoJsonTypes = GeoJsonTypes;
+    export type GeoJsonObject = GeoJsonObject;
+    export type GeometryObject = GeometryObject;
 }
-
-export declare type OlaMapsEvent = OlaMaps.OlaMapsEvent;
-
-export declare type OlaMapStyle = MapStyle[];
-
-export declare type OlaMapsZoomEvent = OlaMaps.OlaMapsZoomEvent;
-
-export declare type Point = OlaMaps.Point;
-
-export declare type Polygon = OlaMaps.Polygon;
-
-export declare type Popup = OlaMaps.Popup;
-
-export declare type PopupOptions = OlaMaps.PopupOptions;
-
-export declare type Position = OlaMaps.Position;
-
-export declare type QueryRenderedFeaturesOptions = OlaMaps.QueryRenderedFeaturesOptions;
-
-export declare type QueryRenderedFeaturesResults = OlaMaps.QueryRenderedFeaturesResults;
-
-export declare type QuerySourceFeatureOptions = OlaMaps.QuerySourceFeatureOptions;
-
-export declare type RasterTileSource = OlaMaps.RasterTileSource;
-
-export declare type RequestParameters = OlaMaps.RequestParameters;
-
-export declare type RequestTransformFunction = OlaMaps.RequestTransformFunction;
-
-export declare type ScaleControl = OlaMaps.ScaleControl;
-
-export declare type ScaleControlOptions = OlaMaps.ScaleControlOptions;
 
 export declare const setCookie: (name: string, value: string, days?: number) => void;
 
-export declare type SourceSpecification = OlaMaps.SourceSpecification;
-
-export declare type StyleOptions = OlaMaps.StyleOptions;
-
-export declare type StyleSetterOptions = OlaMaps.StyleSetterOptions;
-
-export declare type StyleSpecification = OlaMaps.StyleSpecification;
-
-export declare type TerrainControl = OlaMaps.TerrainControl;
-
-export declare type TileState = OlaMaps.TileState;
-
-export declare type VectorTileSource = OlaMaps.VectorTileSource;
-
-export declare type VideoSource = OlaMaps.VideoSource;
-
 export { }
-
-
-declare namespace OlaMaps {
-    type Marker = OlaMapsGl.Marker;
-    type Popup = OlaMapsGl.Popup;
-    type NavigationControl = OlaMapsGl.NavigationControl;
-    type GeolocateControl = OlaMapsGl.GeolocateControl;
-    type ScaleControl = OlaMapsGl.ScaleControl;
-    type FullscreenControl = OlaMapsGl.FullscreenControl;
-    type AttributionControl = OlaMapsGl.AttributionControl;
-    type TerrainControl = OlaMapsGl.TerrainControl;
-    type Map = OlaMapsGl.Map;
-    type MapOptions = OlaMapsGl.MapOptions;
-    type MarkerOptions = OlaMapsGl.MarkerOptions;
-    type PopupOptions = OlaMapsGl.PopupOptions;
-    type NavigationControlOptions = OlaMapsGl.NavigationControlOptions;
-    type GeolocateControlOptions = OlaMapsGl.GeolocateControlOptions;
-    type ScaleControlOptions = OlaMapsGl.ScaleControlOptions;
-    type FullscreenControlOptions = OlaMapsGl.FullscreenControlOptions;
-    type AttributionControlOptions = OlaMapsGl.AttributionControlOptions;
-    type StyleSpecification = OlaMapsGl.StyleSpecification;
-    type LayerSpecification = OlaMapsGl.LayerSpecification;
-    type SourceSpecification = OlaMapsGl.SourceSpecification;
-    type StyleOptions = OlaMapsGl.StyleOptions;
-    type StyleSetterOptions = OlaMapsGl.StyleSetterOptions;
-    type AddLayerObject = OlaMapsGl.AddLayerObject;
-    type GeoJSONSource = OlaMapsGl.GeoJSONSource;
-    type GeoJSONSourceOptions = OlaMapsGl.GeoJSONSourceOptions;
-    type GeoJSONSourceDiff = OlaMapsGl.GeoJSONSourceDiff;
-    type GeoJSONFeatureId = OlaMapsGl.GeoJSONFeatureId;
-    type VectorTileSource = OlaMapsGl.VectorTileSource;
-    type RasterTileSource = OlaMapsGl.RasterTileSource;
-    type ImageSource = OlaMapsGl.ImageSource;
-    type CanvasSource = OlaMapsGl.CanvasSource;
-    type VideoSource = OlaMapsGl.VideoSource;
-    type LngLat = OlaMapsGl.LngLat;
-    type LngLatLike = OlaMapsGl.LngLatLike;
-    type LngLatBounds = OlaMapsGl.LngLatBounds;
-    type Point = OlaMapsGl.Point;
-    type MercatorCoordinate = OlaMapsGl.MercatorCoordinate;
-    type Coordinates = OlaMapsGl.Coordinates;
-    type Feature = OlaMapsGl.Feature;
-    type MapGeoJSONFeature = OlaMapsGl.MapGeoJSONFeature;
-    type GeoJSONFeature = OlaMapsGl.GeoJSONFeature;
-    type FeatureStates = OlaMapsGl.FeatureStates;
-    type FeatureIdentifier = OlaMapsGl.FeatureIdentifier;
-    type GeoJSON = GeoJSON.GeoJSON;
-    type Geometry = GeoJSON.Geometry;
-    type GeometryCollection = GeoJSON.GeometryCollection;
-    type GeoJSONPoint = GeoJSON.Point;
-    type MultiPoint = GeoJSON.MultiPoint;
-    type LineString = GeoJSON.LineString;
-    type MultiLineString = GeoJSON.MultiLineString;
-    type Polygon = GeoJSON.Polygon;
-    type MultiPolygon = GeoJSON.MultiPolygon;
-    type FeatureCollection = GeoJSON.FeatureCollection;
-    type GeoJsonProperties = GeoJSON.GeoJsonProperties;
-    type Position = GeoJSON.Position;
-    type BBox = GeoJSON.BBox;
-    type QueryRenderedFeaturesOptions = OlaMapsGl.QueryRenderedFeaturesOptions;
-    type QuerySourceFeatureOptions = OlaMapsGl.QuerySourceFeatureOptions;
-    type QueryRenderedFeaturesResults = OlaMapsGl.QueryRenderedFeaturesResults;
-    type MapMouseEvent = OlaMapsGl.MapMouseEvent;
-    type MapTouchEvent = OlaMapsGl.MapTouchEvent;
-    type MapWheelEvent = OlaMapsGl.MapWheelEvent;
-    type MapLayerMouseEvent = OlaMapsGl.MapLayerMouseEvent;
-    type MapLayerTouchEvent = OlaMapsGl.MapLayerTouchEvent;
-    type MapDataEvent = OlaMapsGl.MapDataEvent;
-    type MapSourceDataEvent = OlaMapsGl.MapSourceDataEvent;
-    type MapStyleDataEvent = OlaMapsGl.MapStyleDataEvent;
-    type MapTerrainEvent = OlaMapsGl.MapTerrainEvent;
-    type MapProjectionEvent = OlaMapsGl.MapProjectionEvent;
-    type OlaMapsEvent = OlaMapsGl.MapLibreEvent;
-    type OlaMapsZoomEvent = OlaMapsGl.MapLibreZoomEvent;
-    type MapEventType = OlaMapsGl.MapEventType;
-    type AJAXError = OlaMapsGl.AJAXError;
-    type ErrorLike = OlaMapsGl.ErrorLike;
-    type IControl = OlaMapsGl.IControl;
-    type CustomLayerInterface = OlaMapsGl.CustomLayerInterface;
-    type RequestParameters = OlaMapsGl.RequestParameters;
-    type GetResourceResponse<T> = OlaMapsGl.GetResourceResponse<T>;
-    type AddProtocolAction = OlaMapsGl.AddProtocolAction;
-    type RequestTransformFunction = OlaMapsGl.RequestTransformFunction;
-    type TileState = OlaMapsGl.TileState;
-}
