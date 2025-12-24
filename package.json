@@ -22,5 +22,6 @@
   "engines": {
     "npm": ">=8.1.0",
     "node": ">=16.14.0"
-  }
+  },
+  "keywords": ["olamaps", "olamapsweb", "olamaps-web-sdk", "india-maps", "ola-maps", "olamaps-official"]
 }
