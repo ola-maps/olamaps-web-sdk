@@ -12,7 +12,7 @@ class r {
     if (typeof window > "u")
       throw new Error("OlaMaps can only be initialized in a browser environment");
     const [{ OlaMaps: o }, i] = await Promise.all([
-      import("./OlaMaps-BGIwlyn5.js"),
+      import("./OlaMaps-C83wz36C.js"),
       import("./maplibre-gl-BIFSxk4Y.js").then((a) => a.O)
     ]);
     return r.initializeStaticProperties(i), await new o({

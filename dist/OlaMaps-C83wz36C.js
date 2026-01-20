@@ -33028,7 +33028,7 @@ class Yx {
         l.id = a, l.href = "https://www.openstreetmap.org/copyright", l.target = "_blank", l.textContent = "| © OpenStreetMap contributors", r.appendChild(l);
       }
       const c = "copernicus-attrib";
-      if (n.includes("default_dark_standard_satellite") && !r.querySelector(`#${c}`)) {
+      if (n.includes("default-dark-standard-satellite") && !r.querySelector(`#${c}`)) {
         const l = document.createElement("span");
         l.id = c, l.textContent = " | Contains modified Copernicus Sentinel-2 data 2024", r.appendChild(l);
       }
