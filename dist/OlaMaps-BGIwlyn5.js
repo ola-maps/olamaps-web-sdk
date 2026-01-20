@@ -33012,19 +33012,25 @@ class Yx {
       i.style.position = "absolute", i.style.bottom = "4px", i.style.left = "10px", i.style.zIndex = "1000", i.innerHTML = xg(n), s[r].appendChild(i);
     }
   }
-  addAttribution() {
-    document.querySelectorAll(".maplibregl-ctrl-bottom-right .maplibregl-ctrl-attrib-inner")?.forEach((s) => {
-      const n = s.querySelector("a");
-      n && (n.style.display = "none");
-      const r = "ola-maps-link";
-      if (!s.querySelector(`#${r}`)) {
-        const o = document.createElement("a");
-        o.id = r, o.href = "https://maps.olakrutrim.com/", o.target = "_blank", o.textContent = "Ola Maps ", s.appendChild(o);
+  addAttribution(e) {
+    const s = document.querySelectorAll(".maplibregl-ctrl-bottom-right .maplibregl-ctrl-attrib-inner"), n = e?.style || "";
+    s?.forEach((r) => {
+      const i = r.querySelector("a");
+      i && (i.style.display = "none");
+      const o = "ola-maps-link";
+      if (!r.querySelector(`#${o}`)) {
+        const l = document.createElement("a");
+        l.id = o, l.href = "https://maps.olakrutrim.com/", l.target = "_blank", l.textContent = "Ola Maps ", r.appendChild(l);
       }
-      const i = "osm-link";
-      if (!s.querySelector(`#${i}`)) {
-        const o = document.createElement("a");
-        o.id = i, o.href = "https://www.openstreetmap.org/copyright", o.target = "_blank", o.textContent = "| © OpenStreetMap contributors", s.appendChild(o);
+      const a = "osm-link";
+      if (!r.querySelector(`#${a}`)) {
+        const l = document.createElement("a");
+        l.id = a, l.href = "https://www.openstreetmap.org/copyright", l.target = "_blank", l.textContent = "| © OpenStreetMap contributors", r.appendChild(l);
+      }
+      const c = "copernicus-attrib";
+      if (n.includes("default_dark_standard_satellite") && !r.querySelector(`#${c}`)) {
+        const l = document.createElement("span");
+        l.id = c, l.textContent = " | Contains modified Copernicus Sentinel-2 data 2024", r.appendChild(l);
       }
     });
   }
@@ -33082,7 +33088,7 @@ class Yx {
         }
       },
       ...e
-    }), this.mode === "3d" && this.add3dLayer(), this.addOlaLogo(e), this.addAttribution();
+    }), this.mode === "3d" && this.add3dLayer(), this.addOlaLogo(e), this.addAttribution({ style: e?.style });
     const s = {};
     return Object.getOwnPropertyNames(V.Map.prototype).forEach((r) => {
       typeof this.olaMaps[r] == "function" && (s[r] = this.olaMaps[r].bind(this.olaMaps));
