@@ -1,6 +1,6 @@
 {
   "name": "olamaps-web-sdk",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Ola Maps Web SDK",
   "files": [
     "dist/*"
@@ -23,5 +23,12 @@
     "npm": ">=8.1.0",
     "node": ">=16.14.0"
   },
-  "keywords": ["olamaps", "olamapsweb", "olamaps-web-sdk", "india-maps", "ola-maps", "olamaps-official"]
+  "keywords": [
+    "olamaps",
+    "olamapsweb",
+    "olamaps-web-sdk",
+    "india-maps",
+    "ola-maps",
+    "olamaps-official"
+  ]
 }
